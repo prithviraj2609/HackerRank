@@ -43,7 +43,6 @@ class Result {
 public class GradingStudents {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         int gradesCount = Integer.parseInt(bufferedReader.readLine().trim());
 
@@ -59,15 +58,8 @@ public class GradingStudents {
                 .collect(toList());
 
         List<Integer> result = Result.gradingStudents(grades);
-
-        bufferedWriter.write(
-                result.stream()
-                        .map(Object::toString)
-                        .collect(joining("\n"))
-                        + "\n"
-        );
+        System.out.println(result);
 
         bufferedReader.close();
-        bufferedWriter.close();
     }
 }
